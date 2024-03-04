@@ -1,5 +1,3 @@
-Certamente, suddividerò ulteriormente il codice per fornire spiegazioni più dettagliate per alcune parti specifiche:
-
 ### Interfacce e Enumerazioni
 
 ```typescript
@@ -118,7 +116,9 @@ Questa è una classe astratta di base per tutti i componenti dell'interfaccia ut
 ### Classe `ProjectItem`
 
 ```typescript
-class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Draggable {
+class ProjectItem
+  extends Component<HTMLUListElement, HTMLLIElement>
+  implements Draggable {
   // ...
 }
 ```
@@ -128,7 +128,9 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements 
 ### Classe `ProjectList`
 
 ```typescript
-class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget {
+class ProjectList
+  extends Component<HTMLDivElement, HTMLElement>
+  implements DragTarget {
   // ...
 }
 ```
