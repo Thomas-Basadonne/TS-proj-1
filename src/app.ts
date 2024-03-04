@@ -1,4 +1,5 @@
 //Drag & Drop interfaces
+// Interfacce per gestire il drag and drop
 interface Draggable {
   dragStartHandler(event: DragEvent): void;
   dragEndHandler(event: DragEvent): void;
@@ -11,10 +12,13 @@ interface DragTarget {
 }
 
 //Prj Type
+// Enum per lo stato del progetto
 enum ProjectStatus {
   Active,
   Finished,
 }
+
+// Classe che rappresenta un progetto
 class Project {
   constructor(
     public id: string,
@@ -81,7 +85,8 @@ class ProjectState extends State<Project> {
 
 const projectState = ProjectState.getInstance();
 
-//VAlidation
+//Validation
+// Interfaccia per la validazione
 interface Validatable {
   value: string | number;
   required?: boolean;
