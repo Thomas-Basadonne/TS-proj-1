@@ -236,15 +236,26 @@ class ProjectInput extends Component {
             min: 1,
             max: 5,
         };
-        if (!validate(titleValidatable) ||
-            !validate(descriptionValidatable) ||
-            !validate(peopleValidatable)) {
-            alert("Invalid input!!!!");
-            return;
+        const titleValidationResult = validate(titleValidatable);
+        const descriptionValidationResult = validate(descriptionValidatable);
+        const peopleValidationResult = validate(peopleValidatable);
+        if (!titleValidationResult) {
+            this.showValidationError("Il Nome è obbligatorio.");
         }
-        else {
+        if (!descriptionValidationResult) {
+            this.showValidationError("La descrizione deve contenere almeno 5 caratteri.");
+        }
+        if (!peopleValidationResult) {
+            this.showValidationError("Il numero di persone nel team deve essere compreso tra 1 e 5.");
+        }
+        if (titleValidationResult &&
+            descriptionValidationResult &&
+            peopleValidationResult) {
             return [enteredTitle, enteredDescription, +enteredPeople];
         }
+    }
+    showValidationError(message) {
+        alert(`Input non valido: ${message}`);
     }
     clearInputs() {
         this.titleInputElement.value = "";
